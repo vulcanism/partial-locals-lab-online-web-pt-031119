@@ -40,7 +40,7 @@ RSpec.describe "create and edit form" do
 
     it "directly renders the form in a students/form partial with the form object passed through as a local variable" do
       view.lookup_context.prefixes = %w[students]
-      student = Student.create(name: 'Bobby', hometown: Faker::Address.city, birthday: Faker::Date.between(25.years.ago, to: 18.years.ago))
+      student = Student.create(name: 'Bobby', hometown: Faker::Address.city, birthday: Faker::Date.between(from: 25.years.ago, to: 18.years.ago))
       assign(:student, student)
       render :template => "students/new.html.erb"
 
