@@ -32,7 +32,7 @@ RSpec.describe "create and edit form" do
   describe 'edit form' do
     it "renders edit student form from the edit.html file" do
       view.lookup_context.prefixes = %w[students]
-      student = Student.create(name: 'Bobby', hometown: Faker::Address.city, birthday: Faker::Date.between(25.years.ago, to: 18.years.ago))
+      student = Student.create(name: 'Bobby', hometown: Faker::Address.city, birthday: Faker::Date.between(from: 25.years.ago, to: 18.years.ago))
       assign(:student, student)
       render :template => "students/edit.html.erb"
       expect(rendered).to match /Update Student/
